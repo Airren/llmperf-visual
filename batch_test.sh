@@ -3,7 +3,8 @@
 # 固定参数
 STDDEV_INPUT_TOKENS=10
 STDDEV_OUTPUT_TOKENS=10
-MODEL_NAME="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+# MODEL_NAME="deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+MODEL_NAME="deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
 
 export OPENAI_API_KEY="empty"
 export OPENAI_API_BASE="http://10.0.11.102:30080/v1"
@@ -22,7 +23,7 @@ MEAN_INPUT_TOKENS_LIST=(1024)
 MEAN_OUTPUT_TOKENS_LIST=(512)
 
 # 创建结果文件夹
-RESULTS_BASE_DIR="result_outputs_batch_full_4"
+RESULTS_BASE_DIR="result_outputs_batch_full_70B_1"
 mkdir -p "${RESULTS_BASE_DIR}"
 
 # 循环所有长度组合
