@@ -4,14 +4,16 @@
 STDDEV_INPUT_TOKENS=10
 STDDEV_OUTPUT_TOKENS=10
 # MODEL_NAME="deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
-MODEL_NAME="deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
+MODEL_NAME="${LLM_MODEL_ID:-deepseek-ai/DeepSeek-R1-Distill-Qwen-32B}"
+#MODEL_NAME="deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
 
 export OPENAI_API_KEY="empty"
-export OPENAI_API_BASE="http://10.0.11.102:30080/v1"
+export OPENAI_API_BASE="${LLM_ENDPOINT}/v1"
 
 # 要测试的并发列表
 #CONCURRENT_LIST=(4 8 16 32 64 128)
-CONCURRENT_LIST=($(seq 2 128))
+#CONCURRENT_LIST=($(seq 2 128))
+CONCURRENT_LIST=(1 2 4 6 8 10 12 14 16 18 20 22 24)
 
 
 # 输入输出token长度列表
@@ -23,7 +25,7 @@ MEAN_INPUT_TOKENS_LIST=(1024)
 MEAN_OUTPUT_TOKENS_LIST=(512)
 
 # 创建结果文件夹
-RESULTS_BASE_DIR="result_outputs_batch_full_70B_1"
+RESULTS_BASE_DIR="result_outputs"
 mkdir -p "${RESULTS_BASE_DIR}"
 
 # 循环所有长度组合
